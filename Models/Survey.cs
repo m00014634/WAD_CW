@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SurveyForm.Models
 {
@@ -6,6 +7,7 @@ namespace SurveyForm.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
+       // [Required(ErrorMessage = "Title of the survey us required")]
         public string Description { get; set; }
         public int? QuestionId { get; set; }
         [ForeignKey("QuestionId")]

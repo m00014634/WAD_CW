@@ -14,13 +14,13 @@ namespace SurveyForm.Repositories
         }
         public async Task <IEnumerable<Survey>> GetAllSurveys()
         {
-             var surveys = await _dbContext.Surveys.ToListAsync();
+             var surveys = await _dbContext.Surveys.Include(s => s.Question).ToListAsync();
              return surveys;
         }
 
         public async Task<Survey> GetSingleSurvey(int id)
         {
-            return await _dbContext.Surveys.FirstOrDefaultAsync(s => s.Id == id);
+            return await _dbContext.Surveys.Include(s => s.Question).FirstOrDefaultAsync(s => s.Id == id);
 
         }
         public async Task CreateSurvey(Survey survey)

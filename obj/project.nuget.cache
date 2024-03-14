@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rTFnjnhmkzS8+LHqS7O1z9vNO8Rd77wJklwuP3m6eWvA+WHt4OwHoBMSNWZqysV1eCWz1zbeQQ6G6NFUhUshpw==",
+  "dgSpecHash": "sYLnv34HALQvAlOOjnVXRcZIZXsyJn7wfhh9MHMskyKwQfEAmUatc/vmDNi/XNEsUzuDw/Y+LwkmF16JMcBZ9A==",
   "success": true,
   "projectFilePath": "C:\\Users\\WJ\\Desktop\\WIUT\\SurveyForm\\SurveyForm.csproj",
   "expectedPackageFiles": [
@@ -224,7 +224,9 @@
     "C:\\Users\\WJ\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\WJ\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\WJ\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\WJ\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\WJ\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\WJ\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\WJ\\.nuget\\packages\\xunit.extensibility.core\\2.7.0\\xunit.extensibility.core.2.7.0.nupkg.sha512"
   ],
   "logs": []
 }
