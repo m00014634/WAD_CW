@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SurveyForm.Data;
+using SurveyForm.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<SurveyFormDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SurveyFormConnectionStr")));
+builder.Services.AddScoped<ISurveysRepository, SurveysRepository>();
 
 var app = builder.Build();
 

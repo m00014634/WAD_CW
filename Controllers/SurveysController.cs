@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SurveyForm.Data;
 using SurveyForm.Models;
+using SurveyForm.Repositories;
 
 namespace SurveyForm.Controllers
 {
@@ -15,39 +16,33 @@ namespace SurveyForm.Controllers
     public class SurveysController : ControllerBase
     {
         private readonly SurveyFormDbContext _context;
+        private readonly ISurveysRepository _surveysRepository;
 
-        public SurveysController(SurveyFormDbContext context)
+        public SurveysController(ISurveysRepository surveysRepository)
         {
-            _context = context;
+            _surveysRepository = surveysRepository;
         }
 
         // GET: api/Surveys
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Survey>>> GetSurveys()
+        public async Task<IEnumerable<Survey>> GetSurveys()
         {
-          if (_context.Surveys == null)
-          {
-              return NotFound();
-          }
-            return await _context.Surveys.ToListAsync();
+
+            return await _surveysRepository.GetAllSurveys();
         }
 
         // GET: api/Surveys/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Survey>> GetSurvey(int id)
         {
-          if (_context.Surveys == null)
-          {
-              return NotFound();
-          }
-            var survey = await _context.Surveys.FindAsync(id);
+            var survey = await _surveysRepository.GetSingleSurvey(id);
 
             if (survey == null)
             {
                 return NotFound();
             }
 
-            return survey;
+            return Ok(survey);
         }
 
         // PUT: api/Surveys/5
@@ -60,24 +55,7 @@ namespace SurveyForm.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(survey).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SurveyExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _surveysRepository.UpdateSurvey(survey);
             return NoContent();
         }
 
@@ -86,13 +64,8 @@ namespace SurveyForm.Controllers
         [HttpPost]
         public async Task<ActionResult<Survey>> PostSurvey(Survey survey)
         {
-          if (_context.Surveys == null)
-          {
-              return Problem("Entity set 'SurveyFormDbContext.Surveys'  is null.");
-          }
-            _context.Surveys.Add(survey);
-            await _context.SaveChangesAsync();
 
+            _surveysRepository.CreateSurvey(survey);
             return CreatedAtAction("GetSurvey", new { id = survey.Id }, survey);
         }
 
@@ -100,25 +73,11 @@ namespace SurveyForm.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSurvey(int id)
         {
-            if (_context.Surveys == null)
-            {
-                return NotFound();
-            }
-            var survey = await _context.Surveys.FindAsync(id);
-            if (survey == null)
-            {
-                return NotFound();
-            }
-
-            _context.Surveys.Remove(survey);
-            await _context.SaveChangesAsync();
+            _surveysRepository.DeleteSuryey(id);
 
             return NoContent();
         }
 
-        private bool SurveyExists(int id)
-        {
-            return (_context.Surveys?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+
     }
 }

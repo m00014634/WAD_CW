@@ -7,5 +7,7 @@ namespace SurveyForm.Data
     {
         public SurveyFormDbContext(DbContextOptions<SurveyFormDbContext> options) : base(options) { }
         public DbSet<Survey> Surveys { get; set; }
+        public DbSet<Question> Questions { get; set; }
+
     }
 }
