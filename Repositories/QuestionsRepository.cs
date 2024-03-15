@@ -24,25 +24,25 @@ namespace QuestionForm.Repositories
             return await _dbContext.Questions.FirstOrDefaultAsync(q => q.Id == id);
 
         }
-        public async Task CreateQuestion(Question survey)
+        public async Task CreateQuestion(Question question)
         {
-            await _dbContext.Questions.AddAsync(survey);
+            await _dbContext.Questions.AddAsync(question);
             await _dbContext.SaveChangesAsync();
         }
 
         public async Task DeleteQuestion(int id)
         {
-            var survey = await _dbContext.Questions.FirstOrDefaultAsync(q => q.Id == id);
-            if (survey != null)
+            var question = await _dbContext.Questions.FirstOrDefaultAsync(q => q.Id == id);
+            if (question != null)
             {
-                _dbContext.Questions.Remove(survey);
+                _dbContext.Questions.Remove(question);
                 await _dbContext.SaveChangesAsync();
             }
         }
 
-        public async Task UpdateQuestion(Question survey)
+        public async Task UpdateQuestion(Question question)
         {
-            _dbContext.Entry(survey).State = EntityState.Modified;
+            _dbContext.Entry(question).State = EntityState.Modified;
             await _dbContext.SaveChangesAsync();
         }
 
