@@ -73,7 +73,7 @@ namespace SurveyForm.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSurvey(int id)
         {
-            _surveysRepository.DeleteSuryey(id);
+            await _surveysRepository.DeleteSuryey(id);
 
             return NoContent();
         }

@@ -6,7 +6,6 @@ namespace SurveyForm.Models
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Question text is required")]
-
         public string QuestionText { get; set; }
     }
 }
