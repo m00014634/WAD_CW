@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿///ID:00014634
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using SurveyForm.Data;
 using SurveyForm.Models;
 using SurveyForm.Repositories;
 
 namespace SurveyForm.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")]                   
     [ApiController]
     public class SurveysController : ControllerBase
     {
@@ -42,7 +37,7 @@ namespace SurveyForm.Controllers
                 return NotFound();
             }
 
-            return Ok(survey);
+            return Ok(survey);  
         }
 
         // PUT: api/Surveys/5
@@ -81,3 +76,4 @@ namespace SurveyForm.Controllers
 
     }
 }
+///ID:00014634
