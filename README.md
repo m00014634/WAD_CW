@@ -4,7 +4,7 @@ This application was developed for the Web Application module, as coursework por
 ---------------
 The calculation process
 14634 ÷ 20 = 731 with a remainder of 14.
-14th topic name **Survey Form**
+14th topic name is **Survey Form**
 ------------
 Prerequisites
 Before you begin working on the SurveyForm project, ensure you have the following prerequisites:
