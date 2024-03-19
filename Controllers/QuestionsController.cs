@@ -11,7 +11,7 @@ using SurveyForm.Repositories;
 
 namespace SurveyForm.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class QuestionsController : ControllerBase
     {
