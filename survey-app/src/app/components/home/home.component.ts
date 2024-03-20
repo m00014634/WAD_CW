@@ -16,7 +16,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   router = inject(Router)
-  itemlist:SurveyFormItems[]=[];
+  itemlist:SurveyFormItems[]=[
+    // {
+    //   "id": 1,
+    //   "title": "Complete Project",
+    //   "description": "Finish the coding project by the deadline.",
+    //   "questionID": 3,
+    //   "question": {
+    //     "id": 3,
+    //     "questionText": "Work"
+    //   }
+    // }
+  ];
   surveyformService=inject(SurveyAppService)
   ngOnInit(){
     this.surveyformService.getAll().subscribe((result)=>{
@@ -25,10 +36,6 @@ export class HomeComponent {
   }
 
   displayedColumns: string[] = ['ID', 'Title', 'Description', 'Question Text','Actions'];
-  c(){
-    console.log("Create")
-    this.router.navigateByUrl("create")
-  };
   e(id:number){
     console.log("edit",id)
     this.router.navigateByUrl("edit/"+id)

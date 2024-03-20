@@ -1,1 +1,16 @@
-<p>details works!</p>
+<div class="flex mt-8 justify-center">
+    <mat-card class="shadow w-4/12">
+        <mat-card-content>
+            <div class="p-8">
+                <h2 class="text-3xl font-bold mb-4">{{ detailsSurvey.title }}</h2>
+                <p class="text-gray-700">{{ detailsSurvey.description }}</p>
+                <div class="mt-4">
+                    <span class="text-gray-600">Question:</span>
+                    <mat-chip class="ml-2">{{ detailsSurvey.question.questionText }}</mat-chip>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
